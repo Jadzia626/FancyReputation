@@ -1,5 +1,5 @@
-local SexyReputations = LibStub("AceAddon-3.0"):NewAddon("Sexy Reputations", "AceEvent-3.0", "AceTimer-3.0", "AceConsole-3.0")
-local mod = SexyReputations
+local SexyReputation2 = LibStub("AceAddon-3.0"):NewAddon("Sexy Reputation 2", "AceEvent-3.0", "AceTimer-3.0", "AceConsole-3.0")
+local mod = SexyReputation2
 local tooltip
 
 local GetNumFactions = GetNumFactions
@@ -108,7 +108,7 @@ do
 end
 
 function mod:OnInitialize()
-    mod.db = LibStub("AceDB-3.0"):New("SexyRepDB", mod.defaults, "Default")
+    mod.db  = LibStub("AceDB-3.0"):New("SexyRep2DB", mod.defaults, "Default")
     mod.gdb = mod.db.global
     mod.cdb = mod.db.char
     FL = mod.gdb.factionLookup

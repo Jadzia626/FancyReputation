@@ -1,7 +1,7 @@
-local mod = LibStub("AceAddon-3.0"):GetAddon("Sexy Reputations")
-local L = LibStub("AceLocale-3.0"):GetLocale("SexyReputation", false)
-local R = LibStub("AceConfigRegistry-3.0")
-local C = LibStub("AceConfigDialog-3.0")
+local mod   = LibStub("AceAddon-3.0"):GetAddon("Sexy Reputation 2")
+local L     = LibStub("AceLocale-3.0"):GetLocale("SexyReputation", false)
+local R     = LibStub("AceConfigRegistry-3.0")
+local C     = LibStub("AceConfigDialog-3.0")
 local DBOpt = LibStub("AceDBOptions-3.0")
 
 function mod:SetProfileParam(var, value)
