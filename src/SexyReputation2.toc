@@ -1,6 +1,6 @@
 ## Interface: 70000
 ## X-Compatible-With: 70300
-## Title: Sexy Reputation 2
+## Title: Sexy Reputation 2 |cff00aa00v0.1|r
 ## Notes: A fancy LDB reputation display. Cloned from SexyReputation by NeoTron
 ## Author: Jadzia626
 ## Version: 0.1

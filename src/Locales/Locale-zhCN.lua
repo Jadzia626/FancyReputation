@@ -32,6 +32,7 @@ L["Reputation Only"] = "只有声望"
 L["Session"] = "节录"
 L["Sexy Reputation"] = "Sexy Reputation"
 L["Sexy Reputations"] = "性感的声望"
+L["Sexy Reputation 2"] = "Sexy Reputation 2"
 L["Shift+Ctrl-Click:"] = "Shift+Ctrl-点击:"
 L["Show Gains"] = "显示获得"
 L["Show lines after each row so you can more easily see which values below to which reputation"] = "Show lines after each row so you can more easily see which values below to which reputation" -- Requires localization

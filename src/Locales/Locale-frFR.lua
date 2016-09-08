@@ -32,6 +32,7 @@ L["Reputation Only"] = "Réputation uniquement"
 L["Session"] = "Session"
 L["Sexy Reputation"] = "Sexy Reputation" -- Requires localization
 L["Sexy Reputations"] = "Sexy Reputations" -- Requires localization
+L["Sexy Reputation 2"] = "Sexy Reputation 2" -- Requires localization
 L["Shift+Ctrl-Click:"] = "Shift+Ctrl-Clic :"
 L["Show Gains"] = "Afficher les gains"
 L["Show lines after each row so you can more easily see which values below to which reputation"] = "Affiche des lignes après chaque rangée afin que vous puissiez voir plus facilement quelles valeurs correspondent à quelles réputations."

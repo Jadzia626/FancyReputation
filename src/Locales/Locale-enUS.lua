@@ -29,6 +29,7 @@ L["Reputation Only"] = true
 L["Session"] = true
 L["Sexy Reputation"] = true
 L["Sexy Reputations"] = true
+L["Sexy Reputation 2"] = true
 L["Shift+Ctrl-Click:"] = true
 L["Show Gains"] = true
 L["Show Name"] = true

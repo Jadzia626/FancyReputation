@@ -81,7 +81,7 @@ mod.defaults = {
 
 mod.options = {
     type = "group",
-    name = L["Sexy Reputations"],
+    name = L["Sexy Reputation 2"],
     handler = mod,
     set = "SetProfileParam",
     get = "GetProfileParam",

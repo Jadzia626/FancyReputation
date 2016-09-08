@@ -18,13 +18,13 @@ local LD   = LibStub("LibDropdown-1.0")
 local QTIP = LibStub("LibQTip-1.0")
 local BAR  = LibStub("LibSimpleBar-1.0")
 
-local ldb  = LibStub("LibDataBroker-1.1"):NewDataObject(L["Sexy Reputation"],{
+local ldb  = LibStub("LibDataBroker-1.1"):NewDataObject("SexyReputation2",{
         type  =  "data source",
-        label = L["Sexy Reputation"],
+        label = L["Sexy Reputation 2"],
         text  = L["Factions"],
         icon  = (UnitFactionGroup("player") == "Horde" and
-                [[Interface\Addons\SexyReputation\hordeicon]] or
-                [[Interface\Addons\SexyReputation\allianceicon]]),
+                [[Interface\Addons\SexyReputation2\hordeicon]] or
+                [[Interface\Addons\SexyReputation2\allianceicon]]),
     })
 
 
@@ -429,7 +429,7 @@ local function _factionOnClick(frame, faction, button)
 end
 
 function ldb.OnEnter(frame)
-    tooltip = QTIP:Acquire("SexyRepTooltip")
+    tooltip = QTIP:Acquire("SexyRep2Tooltip")
     tooltip:EnableMouse(true)
 
     local numCols = 2
@@ -636,7 +636,7 @@ function ldb.OnClick(frame, button)
         --mod:ToggleConfigDialog()
     elseif button == "RightButton" then
         -- First hide the tooltip
-        local tooltip = QTIP:Acquire("SexyRepTooltip")
+        local tooltip = QTIP:Acquire("SexyRep2Tooltip")
         QTIP:Release(tooltip)
 
         local menu = LD:OpenAce3Menu(mod.options)
