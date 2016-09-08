@@ -527,7 +527,7 @@ function ldb.OnEnter(frame)
 
             local icon = ""
             if watchedFaction == faction.id then
-                icon = [[|TInterface\Icons\Spell_Shadow_EvilEye:20|t]]
+                icon = [[|TInterface\RaidFrame\ReadyCheck-Ready:12|t]]
             end
             y = _addIndentedCell(tooltip, icon, title, indent, font, _factionOnClick, faction)
 
