@@ -44,7 +44,7 @@ mod.colorIds = {
     hated = 1, hostile = 2, unfriendly = 3, neutral = 4, friendly = 5, honored = 6, revered = 7, exalted = 8
 }
 
-local minReputationValues =  {
+local minReputationValues = {
     [1] = -42000, -- Hated
     [2] =  -6000, -- Hostile
     [3] =  -3000, -- Unfriendly
@@ -54,7 +54,6 @@ local minReputationValues =  {
     [7] =  21000, -- Revered
     [8] =  42000, -- Exalted
 }
-
 
 -- table recycling
 local new, del, newHash, newSet, deepDel
