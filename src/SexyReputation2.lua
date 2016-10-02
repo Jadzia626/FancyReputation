@@ -322,7 +322,7 @@ local function delta(number, zero)
 end
 
 local function _plusminus(folded)
-    return fmt("|TInterface\\Buttons\\UI-%sButton-Up:18|t", folded and "Plus" or "Minus")
+    return fmt("|TInterface\\Buttons\\UI-%sButton-Up:12|t", folded and "Plus" or "Minus")
 end
 
 local function _showFactionInfoTooltip(frame, faction)

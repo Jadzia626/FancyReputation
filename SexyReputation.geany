@@ -20,13 +20,18 @@ indent_mode=2
 [project]
 name=SexyReputation
 base_path=/home/vkbo/Code/SexyReputation
+description=
 
 [long line marker]
 long_line_behaviour=1
 long_line_column=120
 
 [files]
-current_page=-1
+current_page=3
+FILE_NAME_0=0;Sh;0;EUTF-8;0;1;0;%2Fhome%2Fvkbo%2FCode%2FSexyReputation%2FpublishToWoW.sh;0;4
+FILE_NAME_1=197;None;0;EUTF-8;0;1;0;%2Fhome%2Fvkbo%2FCode%2FSexyReputation%2Fsrc%2FSexyReputation2.toc;0;4
+FILE_NAME_2=281;Lua;0;EUTF-8;0;1;0;%2Fhome%2Fvkbo%2FCode%2FSexyReputation%2Fsrc%2FConfig.lua;0;4
+FILE_NAME_3=1291;Lua;0;EUTF-8;0;1;0;%2Fhome%2Fvkbo%2FCode%2FSexyReputation%2Fsrc%2FSexyReputation2.lua;0;4
 
 [VTE]
 last_dir=/home/vkbo/Dropbox/Code/ReyPIC
