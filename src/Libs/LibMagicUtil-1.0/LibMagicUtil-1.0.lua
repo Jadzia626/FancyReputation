@@ -24,7 +24,7 @@ After embedding you will be able to use the following methods:
 ]]
 
 local MAJOR = "LibMagicUtil-1.0"
-local MINOR = tonumber("18") or tonumber(("$Revision: 11 $"):match("(%d+)"))
+local MINOR = tonumber("19") or tonumber(("$Revision: 11 $"):match("(%d+)"))
 
 local lib = LibStub:NewLibrary(MAJOR, MINOR)
 local media = LibStub("LibSharedMedia-3.0")
