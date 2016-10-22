@@ -1,0 +1,10 @@
+
+ Fancy Reputation Change Log
+=============================
+
+ Version 1.0.1.70000 – 23.10.2016
+ - Added missing included library AceDBOptions-3.0 and removed AceHook-3.0 which is not loaded anyway.
+
+ Version 1.0.70000 – 08.09.2016
+ - Changed the default colour scheme from statndard Blizzard colour (red->green) to red->purple.
+ - Scaled down the +/- button and replaced the watched symbol to a checkmark. These no longer increase the line height.
