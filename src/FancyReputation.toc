@@ -1,9 +1,9 @@
 ## Interface: 70000
-## X-Compatible-With: 70300
-## Title: Fancy Reputation|cff00aa00 7.0.3.0|r
+## X-Compatible-With: 70000
+## Title: Fancy Reputation|cff00aa00 1.0-70000|r
 ## Notes: A fancy LDB reputation display. Cloned from SexyReputation by NeoTron.
 ## Author: Jadzia626
-## Version: 7.0.3.0
+## Version: 1.0.70000
 ## X-Category: Tooltip
 ## X-eMail: code@jadzia626.net
 ## OptionalDeps: Ace3, LibDatabroker-1.1, LibMagicUtil-1.0, LibQTip-1.0, LibDataBroker-1.1, LibDropdown-1.0
