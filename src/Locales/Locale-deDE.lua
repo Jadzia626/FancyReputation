@@ -1,9 +1,9 @@
-local L = LibStub("AceLocale-3.0"):NewLocale("SexyReputation", "deDE")
+local L = LibStub("AceLocale-3.0"):NewLocale("FancyReputation", "deDE")
 if not L then return end
 
--- To help localize SexyReputation please enter phrase translations on the
+-- To help localize FancyReputation please enter phrase translations on the
 -- following URL:
--- http://www.wowace.com/projects/sexyreputation/localization/
+-- http://www.wowace.com/projects/FancyReputation/localization/
 -- This file should not be edited manually!
 
 L["Active Factions Only"] = "Nur aktive Fraktionen"
@@ -30,9 +30,9 @@ L["Recent reputation changes"] = "Kürzlich erfolgte Rufänderungen"
 L["Reputation"] = "Ruf"
 L["Reputation Only"] = "Nur Ruf"
 L["Session"] = "Sitzung"
-L["Sexy Reputation"] = "Sexy Reputation"
-L["Sexy Reputations"] = "Sexy Reputations"
-L["Sexy Reputation 2"] = "Sexy Reputation 2"
+L["Fancy Reputation"] = "Fancy Reputation"
+L["Fancy Reputations"] = "Fancy Reputations"
+L["Fancy Reputation 2"] = "Fancy Reputation 2"
 L["Shift+Ctrl-Click:"] = "Shift+Strg-Klick"
 L["Show Gains"] = "Zuwächse anzeigen"
 L["Show lines after each row so you can more easily see which values below to which reputation"] = "Linien nach jeder Reihe anzeigen, um zugehörige Fraktionen und Werten besser Scihtbar zu machen"

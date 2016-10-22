@@ -1,9 +1,9 @@
-local L = LibStub("AceLocale-3.0"):NewLocale("SexyReputation", "koKR")
+local L = LibStub("AceLocale-3.0"):NewLocale("FancyReputation", "koKR")
 if not L then return end
 
--- To help localize SexyReputation please enter phrase translations on the
+-- To help localize FancyReputation please enter phrase translations on the
 -- following URL:
--- http://www.wowace.com/projects/sexyreputation/localization/
+-- http://www.wowace.com/projects/Fancyreputation/localization/
 -- This file should not be edited manually!
 
 L["Active Factions Only"] = "추적중인 평판만 표시"
@@ -30,9 +30,9 @@ L["Recent reputation changes"] = "최근 평판 변화"
 L["Reputation"] = "평판"
 L["Reputation Only"] = "수치만 표시"
 L["Session"] = "현재 접속"
-L["Sexy Reputation"] = "Sexy Reputation"
-L["Sexy Reputations"] = "Sexy Reputations"
-L["Sexy Reputation 2"] = "Sexy Reputation 2"
+L["Fancy Reputation"] = "Fancy Reputation"
+L["Fancy Reputations"] = "Fancy Reputations"
+L["Fancy Reputation 2"] = "Fancy Reputation 2"
 L["Shift+Ctrl-Click:"] = "Shift+Ctrl 클릭:"
 L["Show Gains"] = "증가 표시"
 L["Show lines after each row so you can more easily see which values below to which reputation"] = "각 평판을 구분할 수 있는 밑줄을 표시합니다."

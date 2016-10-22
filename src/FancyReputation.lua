@@ -1,5 +1,5 @@
-local SexyReputation2 = LibStub("AceAddon-3.0"):NewAddon("Sexy Reputation 2", "AceEvent-3.0", "AceTimer-3.0", "AceConsole-3.0")
-local mod = SexyReputation2
+local FancyReputation = LibStub("AceAddon-3.0"):NewAddon("Fancy Reputation", "AceEvent-3.0", "AceTimer-3.0", "AceConsole-3.0")
+local mod = FancyReputation
 local tooltip
 
 local GetNumFactions = GetNumFactions
@@ -13,18 +13,18 @@ local tconcat = table.concat
 local GetFriendshipReputation = GetFriendshipReputation
 local FL
 
-local L    = LibStub("AceLocale-3.0"):GetLocale("SexyReputation", false)
+local L    = LibStub("AceLocale-3.0"):GetLocale("FancyReputation", false)
 local LD   = LibStub("LibDropdown-1.0")
 local QTIP = LibStub("LibQTip-1.0")
 local BAR  = LibStub("LibSimpleBar-1.0")
 
-local ldb  = LibStub("LibDataBroker-1.1"):NewDataObject("SexyReputation2",{
+local ldb  = LibStub("LibDataBroker-1.1"):NewDataObject("FancyReputation",{
         type  =  "data source",
-        label = L["Sexy Reputation 2"],
+        label = L["Fancy Reputation"],
         text  = L["Factions"],
         icon  = (UnitFactionGroup("player") == "Horde" and
-                [[Interface\Addons\SexyReputation2\hordeicon]] or
-                [[Interface\Addons\SexyReputation2\allianceicon]]),
+                [[Interface\Addons\FancyReputation\hordeicon]] or
+                [[Interface\Addons\FancyReputation\allianceicon]]),
     })
 
 
@@ -108,7 +108,7 @@ do
 end
 
 function mod:OnInitialize()
-    mod.db  = LibStub("AceDB-3.0"):New("SexyRep2DB", mod.defaults, "Default")
+    mod.db  = LibStub("AceDB-3.0"):New("FancyRepDB", mod.defaults, "Default")
     mod.gdb = mod.db.global
     mod.cdb = mod.db.char
     FL = mod.gdb.factionLookup
@@ -327,7 +327,7 @@ end
 
 local function _showFactionInfoTooltip(frame, faction)
     if mod.gdb.showTooltips then
-        local tooltip = QTIP:Acquire("SexyRepFactionTooltip")
+        local tooltip = QTIP:Acquire("FancyRepFactionTooltip")
 
         if faction.hasRep or (faction.desc and faction.desc ~= '') then
             local y
@@ -429,7 +429,7 @@ local function _factionOnClick(frame, faction, button)
 end
 
 function ldb.OnEnter(frame)
-    tooltip = QTIP:Acquire("SexyRep2Tooltip")
+    tooltip = QTIP:Acquire("FancyRepTooltip")
     tooltip:EnableMouse(true)
 
     local numCols = 2
@@ -636,7 +636,7 @@ function ldb.OnClick(frame, button)
         --mod:ToggleConfigDialog()
     elseif button == "RightButton" then
         -- First hide the tooltip
-        local tooltip = QTIP:Acquire("SexyRep2Tooltip")
+        local tooltip = QTIP:Acquire("FancyRepTooltip")
         QTIP:Release(tooltip)
 
         local menu = LD:OpenAce3Menu(mod.options)

@@ -1,5 +1,5 @@
-local mod   = LibStub("AceAddon-3.0"):GetAddon("Sexy Reputation 2")
-local L     = LibStub("AceLocale-3.0"):GetLocale("SexyReputation", false)
+local mod   = LibStub("AceAddon-3.0"):GetAddon("Fancy Reputation")
+local L     = LibStub("AceLocale-3.0"):GetLocale("FancyReputation", false)
 local R     = LibStub("AceConfigRegistry-3.0")
 local C     = LibStub("AceConfigDialog-3.0")
 local DBOpt = LibStub("AceDBOptions-3.0")
@@ -81,7 +81,7 @@ mod.defaults = {
 
 mod.options = {
     type = "group",
-    name = L["Sexy Reputation 2"],
+    name = L["Fancy Reputation"],
     handler = mod,
     set = "SetProfileParam",
     get = "GetProfileParam",

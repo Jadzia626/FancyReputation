@@ -1,16 +1,16 @@
 ## Interface: 70000
 ## X-Compatible-With: 70300
-## Title: Sexy Reputation 2 |cff00aa00v0.1|r
-## Notes: A fancy LDB reputation display. Cloned from SexyReputation by NeoTron
+## Title: Fancy Reputation|cff00aa00 7.0.3.0|r
+## Notes: A fancy LDB reputation display. Cloned from SexyReputation by NeoTron.
 ## Author: Jadzia626
-## Version: 0.1
+## Version: 7.0.3.0
 ## X-Category: Tooltip
 ## X-eMail: code@jadzia626.net
 ## OptionalDeps: Ace3, LibDatabroker-1.1, LibMagicUtil-1.0, LibQTip-1.0, LibDataBroker-1.1, LibDropdown-1.0
-## SavedVariables: SexyRep2DB
+## SavedVariables: FancyRepDB
 
 # Library files
 embeds.xml
 Locales.xml
-SexyReputation2.lua
+FancyReputation.lua
 Config.lua

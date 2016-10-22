@@ -1,9 +1,9 @@
-local L = LibStub("AceLocale-3.0"):NewLocale("SexyReputation", "zhCN")
+local L = LibStub("AceLocale-3.0"):NewLocale("FancyReputation", "zhCN")
 if not L then return end
 
--- To help localize SexyReputation please enter phrase translations on the
+-- To help localize FancyReputation please enter phrase translations on the
 -- following URL:
--- http://www.wowace.com/projects/sexyreputation/localization/
+-- http://www.wowace.com/projects/Fancyreputation/localization/
 -- This file should not be edited manually!
 
 L["Active Factions Only"] = "只有主动阵营"
@@ -30,9 +30,9 @@ L["Recent reputation changes"] = "最近声望改变"
 L["Reputation"] = "声望"
 L["Reputation Only"] = "只有声望"
 L["Session"] = "节录"
-L["Sexy Reputation"] = "Sexy Reputation"
-L["Sexy Reputations"] = "性感的声望"
-L["Sexy Reputation 2"] = "Sexy Reputation 2"
+L["Fancy Reputation"] = "Fancy Reputation"
+L["Fancy Reputations"] = "Fancy Reputation"
+L["Fancy Reputation 2"] = "Fancy Reputation 2"
 L["Shift+Ctrl-Click:"] = "Shift+Ctrl-点击:"
 L["Show Gains"] = "显示获得"
 L["Show lines after each row so you can more easily see which values below to which reputation"] = "Show lines after each row so you can more easily see which values below to which reputation" -- Requires localization
