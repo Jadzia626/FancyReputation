@@ -20,13 +20,19 @@ indent_mode=2
 [project]
 name=FancyReputation
 base_path=/home/vkbo/Code/FancyReputation
+description=
 
 [long line marker]
 long_line_behaviour=1
 long_line_column=120
 
 [files]
-current_page=-1
+current_page=4
+FILE_NAME_0=34;Sh;0;EUTF-8;0;1;0;%2Fhome%2Fvkbo%2FCode%2FFancyReputation%2FpublishToWoW.sh;0;4
+FILE_NAME_1=504;None;0;EUTF-8;0;1;0;%2Fhome%2Fvkbo%2FCode%2FFancyReputation%2Fsrc%2FFancyReputation.toc;0;4
+FILE_NAME_2=0;Lua;0;EUTF-8;0;1;0;%2Fhome%2Fvkbo%2FCode%2FFancyReputation%2Fsrc%2FConfig.lua;0;4
+FILE_NAME_3=0;XML;0;EUTF-8;0;1;0;%2Fhome%2Fvkbo%2FCode%2FFancyReputation%2Fsrc%2Fembeds.xml;0;4
+FILE_NAME_4=379;None;0;EUTF-8;0;1;0;%2Fhome%2Fvkbo%2FCode%2FFancyReputation%2FChangeLog.txt;0;4
 
 [VTE]
 last_dir=/home/vkbo/Dropbox/Code/ReyPIC
