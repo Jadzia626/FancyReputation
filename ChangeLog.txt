@@ -2,12 +2,16 @@
  Fancy Reputation Change Log
 =============================
 
- Version 1.0.2.70100 – 23.10.2016
- - Updated for WoW patch 7.1
+Version 1.1.0.70200 – 29.03.2017
+- Updated for WoW patch 7.2
+- Exalted rep now seems to stop at 0 (42000 total). Changed the bar to show 100% at 0/0
 
- Version 1.0.1.70000 – 23.10.2016
- - Updated included libraries
+Version 1.0.2.70100 – 23.10.2016
+- Updated for WoW patch 7.1
 
- Version 1.0.70000 – 08.09.2016
- - Changed the default colour scheme from statndard Blizzard colour (red->green) to red->purple.
- - Scaled down the +/- button and replaced the watched symbol to a checkmark. These no longer increase the line height.
+Version 1.0.1.70000 – 23.10.2016
+- Updated included libraries
+
+Version 1.0.70000 – 08.09.2016
+- Changed the default colour scheme from statndard Blizzard colour (red->green) to red->purple.
+- Scaled down the +/- button and replaced the watched symbol to a checkmark. These no longer increase the line height.

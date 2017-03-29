@@ -580,7 +580,13 @@ function ldb.OnEnter(frame)
                 end
 
                 if showPercentage then
-                    tooltip:SetCell(y, x, fmt("%.0f%%", (100.0*rep / maxValue)), "RIGHT") x = x + 1
+                    local pctValue
+                    if (maxValue == 0) then
+                        pctValue = 100.0
+                    else
+                        pctValue = 100.0*rep/maxValue
+                    end
+                    tooltip:SetCell(y, x, fmt("%.0f%%", pctValue), "RIGHT") x = x + 1
                 end
 
                 if showGains then
@@ -684,10 +690,18 @@ function mod:UpdateLDBText()
 
     local maxValue = faction.topValue - faction.bottomValue
     if gdb.trackRep then
-        fields[#fields+1] = fmt("%d/%d", rep, maxValue)
+        if (maxValue == 0) then
+            fields[#fields+1] = ""
+        else
+            fields[#fields+1] = fmt("%d/%d", rep, maxValue)
+        end
     end
     if gdb.trackPercentage then
-        fields[#fields+1] = fmt("|cffffd200%.1f%%|r", 100.0 * rep / maxValue)
+        if (maxValue == 0) then
+            fields[#fields+1] = ""
+        else
+            fields[#fields+1] = fmt("|cffffd200%.1f%%|r", 100.0 * rep / maxValue)
+        end
     end
     if gdb.trackGains and mod.sessionFactionChanges[faction.id] then
         fields[#fields+1] = delta(mod.sessionFactionChanges[faction.id], true)
@@ -770,7 +784,12 @@ function barCellPrototype:SetupCell(tooltip, value, justification, font, color, 
     fs:SetText(tostring(value))
     fs:Show()
 
-    self.bar:SetValue(rep, maxRep)
+    -- Fix for new cap on rep to 42000 in 7.2
+    if (maxRep == 0) then
+        self.bar:SetValue(1, 1)
+    else
+        self.bar:SetValue(rep, maxRep)
+    end
     self.bar:SetBackgroundColor(0, 0, 0, 0.4)
     self.bar:SetColor(color.r, color.g, color.b, 0.8)
 
@@ -793,4 +812,3 @@ end
 function barCellPrototype:ReleaseCell()
     self.r, self.g, self.b = 1, 1, 1
 end
-
