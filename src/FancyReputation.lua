@@ -721,7 +721,7 @@ function mod:UpdateLDBText()
     if gdb.trackGains and mod.sessionFactionChanges[faction.id] then
         fields[#fields+1] = delta(mod.sessionFactionChanges[faction.id], true)
     end
-    ldb.text = tconcat(fields, " - ")
+    ldb.text = tconcat(fields, " ")
 end
 
 -----------------------
