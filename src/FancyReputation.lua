@@ -11,6 +11,8 @@ local IsControlKeyDown = IsControlKeyDown
 local IsShiftKeyDown = IsShiftKeyDown
 local tconcat = table.concat
 local GetFriendshipReputation = GetFriendshipReputation
+local GetFactionParagonInfo = C_Reputation.GetFactionParagonInfo
+local IsFactionParagon = C_Reputation.IsFactionParagon
 local FL
 
 local L    = LibStub("AceLocale-3.0"):GetLocale("FancyReputation", false)
@@ -162,6 +164,11 @@ function mod:ScanFactions(toggleActiveId)
         if not name then  break end -- last one reached
         local friendId, friendRep, friendMaxRep, _, friendshipText, _, friendTextLevel, friendThresh, nextFriendThresh = GetFriendshipReputation(factionId);
         local isCapped
+        local paraValue, paraThreshold, hasRewardPending, hasParagon
+        if (factionId and IsFactionParagon(factionId)) then
+            paraValue, paraThreshold, _, hasRewardPending = GetFactionParagonInfo(factionId)
+            hasParagon = true
+        end
         if (friendId ~= nil) then
             if nextFriendThresh then
                 bottomValue = friendThresh
@@ -185,6 +192,10 @@ function mod:ScanFactions(toggleActiveId)
                                 "friendshipText", friendshipText,
                                 "friendTextLevel", friendTextLevel,
                                 "friendIsCapped", isCapped,
+                                "hasParagon", hasParagon,
+                                "paraValue", paraValue,
+                                "paraThreshold", paraThreshold,
+                                "hasRewardPending", hasRewardPending,
                                 "id", mod:FactionID(name))
         mod.allFactions[idx] = faction
         mod.factionIdToIdx[faction.id] = idx
@@ -367,7 +378,7 @@ local function _showFactionInfoTooltip(frame, faction)
 
                     local color, rep, repTitle = mod:ReputationLevelDetails(faction)
                     if not faction.friendId then
-                        local remaining = 42999 - faction.bottomValue - rep
+                        local remaining = 42000 - faction.bottomValue - rep
                         if remaining > 0 then
                             tooltip:AddLine(L["Remaining"], remaining)
                         end
@@ -556,7 +567,11 @@ function ldb.OnEnter(frame)
                         if idx then
                             local faction = mod.allFactions[idx]
                             if faction then
-                                tooltip:SetCell(yy, xx, fmt("%d / %d", rep, maxValue), "CENTER", mod.barProvider, mod.gdb.colors[colorId], rep, maxValue, 120, 12)
+                                if (maxValue > 0) then
+                                    tooltip:SetCell(yy, xx, fmt("%d / %d", rep, maxValue), "CENTER", mod.barProvider, mod.gdb.colors[colorId], rep, maxValue, 120, 12)
+                                elseif (faction.hasParagon ~= nil) then
+                                    tooltip:SetCell(yy, xx, fmt("%d / %d", faction.paraValue, faction.paraThreshold), "CENTER", mod.barProvider, mod.gdb.colors[colorId], 1, 1, 120, 12)
+                                end
                                 _showFactionInfoTooltip(frame, faction)
                             end
                         end
@@ -580,13 +595,13 @@ function ldb.OnEnter(frame)
                 end
 
                 if showPercentage then
-                    local pctValue
-                    if (maxValue == 0) then
-                        pctValue = 100.0
+                    if (maxValue > 0) then
+                        tooltip:SetCell(y, x, fmt("%.0f%%", 100.0*rep/maxValue), "RIGHT") x = x + 1
+                    elseif (faction.hasParagon ~= nil) then
+                        tooltip:SetCell(y, x, c(fmt("%.0f%%", 100.0*faction.paraValue / faction.paraThreshold),"ffd200"), "RIGHT") x = x + 1
                     else
-                        pctValue = 100.0*rep/maxValue
+                        tooltip:SetCell(y, x, "100%", "RIGHT") x = x + 1
                     end
-                    tooltip:SetCell(y, x, fmt("%.0f%%", pctValue), "RIGHT") x = x + 1
                 end
 
                 if showGains then
@@ -690,17 +705,17 @@ function mod:UpdateLDBText()
 
     local maxValue = faction.topValue - faction.bottomValue
     if gdb.trackRep then
-        if (maxValue == 0) then
-            fields[#fields+1] = ""
-        else
+        if (maxValue > 0) then
             fields[#fields+1] = fmt("%d/%d", rep, maxValue)
+        elseif (faction.hasParagon ~= nil) then
+            fields[#fields+1] = fmt("%d/%d", faction.paraValue, faction.paraThreshold)
         end
     end
     if gdb.trackPercentage then
-        if (maxValue == 0) then
-            fields[#fields+1] = ""
-        else
+        if (maxValue > 0) then
             fields[#fields+1] = fmt("|cffffd200%.1f%%|r", 100.0 * rep / maxValue)
+        elseif (faction.hasParagon ~= nil) then
+            fields[#fields+1] = fmt("|cffffd200%.1f%%|r", 100.0 * faction.paraValue / faction.paraThreshold)
         end
     end
     if gdb.trackGains and mod.sessionFactionChanges[faction.id] then

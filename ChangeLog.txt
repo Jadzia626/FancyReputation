@@ -2,6 +2,9 @@
  Fancy Reputation Change Log
 =============================
 
+Version 1.2.0.70200 – 31.03.2017
+- Extracts bonus rep after reaching max for Broken Isle factions. While tracking, this is shown in place of the old n/999 progress in the Titan bar, and in the list the bar is always at 100% exalted, but the percentage shows progress in yellow.
+
 Version 1.1.0.70200 – 29.03.2017
 - Updated for WoW patch 7.2
 - Exalted rep now seems to stop at 0 (42000 total). Changed the bar to show 100% at 0/0
