@@ -2,6 +2,9 @@
  Fancy Reputation Change Log
 =============================
 
+Version 1.2.1.70200 – 06.04.2017
+- The old event trigger used didn't catch faction changes for bonus rep. Changed to then one Blizzard's own UI uses.
+
 Version 1.2.0.70200 – 31.03.2017
 - Extracts bonus rep after reaching max for Broken Isle factions. While tracking, this is shown in place of the old n/999 progress in the Titan bar, and in the list the bar is always at 100% exalted, but the percentage shows progress in yellow.
 

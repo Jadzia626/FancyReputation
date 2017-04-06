@@ -121,13 +121,13 @@ function mod:OnInitialize()
 end
 
 function mod:OnEnable()
-    mod:RegisterEvent("COMBAT_TEXT_UPDATE")
+    mod:RegisterEvent("UPDATE_FACTION")
     mod:ScheduleTimer("UpdateLDBText", 3)
     mod:ScheduleTimer("ScanFactions", 5)
 end
 
 function mod:OnDisable()
-    mod:UnregisterEvent("COMBAT_TEXT_UPDATE");
+    mod:UnregisterEvent("UPDATE_FACTION");
 end
 
 -- This transforms the faction name to an ID which is cached.
@@ -165,6 +165,8 @@ function mod:ScanFactions(toggleActiveId)
         local friendId, friendRep, friendMaxRep, _, friendshipText, _, friendTextLevel, friendThresh, nextFriendThresh = GetFriendshipReputation(factionId);
         local isCapped
         local paraValue, paraThreshold, hasRewardPending, hasParagon
+        paraValue = 0
+        paraThreshold = 0
         if (factionId and IsFactionParagon(factionId)) then
             paraValue, paraThreshold, _, hasRewardPending = GetFactionParagonInfo(factionId)
             hasParagon = true
@@ -445,12 +447,12 @@ function ldb.OnEnter(frame)
 
     local numCols = 2
 
-    local showRep = mod.gdb.repTextStyle ~= mod.TEXT_STYLE_STANDING and mod.gdb.repStyle == mod.STYLE_TEXT
-    local showStanding = mod.gdb.repTextStyle ~= mod.TEXT_STYLE_REPUTATION and mod.gdb.repStyle == mod.STYLE_TEXT
-    local showRepBar = mod.gdb.repStyle == mod.STYLE_BAR
+    local showRep        = mod.gdb.repTextStyle ~= mod.TEXT_STYLE_STANDING   and mod.gdb.repStyle == mod.STYLE_TEXT
+    local showStanding   = mod.gdb.repTextStyle ~= mod.TEXT_STYLE_REPUTATION and mod.gdb.repStyle == mod.STYLE_TEXT
+    local showRepBar     = mod.gdb.repStyle     == mod.STYLE_BAR
     local showPercentage = mod.gdb.showPercentage
-    local showGains = mod.gdb.showGains
-    local colorFactions = mod.gdb.colorFactions
+    local showGains      = mod.gdb.showGains
+    local colorFactions  = mod.gdb.colorFactions
 
     if showRepBar then
         numCols = numCols + 1
@@ -695,7 +697,7 @@ function mod:UpdateLDBText()
 
     local fields = new()
     if gdb.trackName then
-        fields[1] = faction.name
+        fields[1] = faction.name..":"
     end
 
     local color, rep, repTitle = mod:ReputationLevelDetails(faction)
@@ -729,12 +731,12 @@ end
 do
     local factionScanTimer
 
-    function mod:COMBAT_TEXT_UPDATE(event, type, faction, amount)
-        if type == "FACTION" then
-        if factionScanTimer then
-            mod:CancelTimer(factionScanTimer, true)
-        end
-        factionScanTimer = mod:ScheduleTimer("ScanForFactionChanges", 1)
+    function mod:UPDATE_FACTION(event, ...)
+        if event == "UPDATE_FACTION" then
+            if factionScanTimer then
+                mod:CancelTimer(factionScanTimer, true)
+            end
+            factionScanTimer = mod:ScheduleTimer("ScanForFactionChanges", 1)
         end
     end
 
@@ -755,9 +757,10 @@ do
             local idx = mod.factionIdToIdx[faction.id] -- required since faction orders might have changed
             if idx then
                 local newFaction = mod.allFactions[idx]
-                if newFaction.reputation ~= faction.reputation then
+                if newFaction.reputation ~= faction.reputation or newFaction.paraValue ~= faction.paraValue then
                     -- Rep change occurred
-                    local amount = newFaction.reputation - faction.reputation
+                    local paraAmount = newFaction.paraValue - faction.paraValue
+                    local amount = newFaction.reputation - faction.reputation + paraAmount
                     mod.sessionFactionChanges[faction.id] = (mod.sessionFactionChanges[faction.id] or 0) + amount
                     today[faction.id] = (today[faction.id] or 0) + amount
 
