@@ -2,6 +2,9 @@
  Fancy Reputation Change Log
 =============================
 
+Version 1.2.1.80000 – 08.09.2018
+- Just bumped compatibility version. The addon still works fine under 8.0.1
+
 Version 1.2.1.70200 – 06.04.2017
 - The old event trigger used didn't catch faction changes for bonus rep. Changed to then one Blizzard's own UI uses.
 
