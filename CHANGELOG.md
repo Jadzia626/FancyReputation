@@ -2,6 +2,9 @@
  Fancy Reputation Change Log
 =============================
 
+Version 1.2.2.80200 – 13.07.2019
+- Added a modulo to the reputation rate when going into the cycle of 10000 rep per reward. The progress shows for instance 1337/10000 instead of 11337/10000 when you're on the second round. Percentage still increases past 100%. Will keep it that way.
+
 Version 1.2.1.80000 – 08.09.2018
 - Just bumped compatibility version. The addon still works fine under 8.0.1
 

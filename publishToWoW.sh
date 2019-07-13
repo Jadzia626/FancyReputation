@@ -1,3 +1,3 @@
 #!/bin/bash
 
-rsync -avPh --delete src/* ~/ownCloud/Games/Backup/World\ of\ Warcraft/Interface/AddOns/FancyReputation/
+rsync -avPh --delete src/* ~/Sync/Games/Backup/World\ of\ Warcraft/Interface/AddOns/FancyReputation/

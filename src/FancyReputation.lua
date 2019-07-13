@@ -181,24 +181,26 @@ function mod:ScanFactions(toggleActiveId)
                 isCapped = true
             end
         end
-        local faction = newHash("name", name,
-                                "desc", description,
-                                "bottomValue", bottomValue,
-                                "topValue", topValue,
-                                "reputation", earnedValue,
-                                "isHeader", isHeader,
-                                "standingId", standingId,
-                                "hasRep", hasRep or earnedValue ~= 0,
-                                "isChild", isChild,
-                                "friendId", friendId,
-                                "friendshipText", friendshipText,
-                                "friendTextLevel", friendTextLevel,
-                                "friendIsCapped", isCapped,
-                                "hasParagon", hasParagon,
-                                "paraValue", paraValue,
-                                "paraThreshold", paraThreshold,
-                                "hasRewardPending", hasRewardPending,
-                                "id", mod:FactionID(name))
+        local faction = newHash(
+            "name", name,
+            "desc", description,
+            "bottomValue", bottomValue,
+            "topValue", topValue,
+            "reputation", earnedValue,
+            "isHeader", isHeader,
+            "standingId", standingId,
+            "hasRep", hasRep or earnedValue ~= 0,
+            "isChild", isChild,
+            "friendId", friendId,
+            "friendshipText", friendshipText,
+            "friendTextLevel", friendTextLevel,
+            "friendIsCapped", isCapped,
+            "hasParagon", hasParagon,
+            "paraValue", paraValue,
+            "paraThreshold", paraThreshold,
+            "hasRewardPending", hasRewardPending,
+            "id", mod:FactionID(name)
+        )
         mod.allFactions[idx] = faction
         mod.factionIdToIdx[faction.id] = idx
 
@@ -296,11 +298,13 @@ function mod:GetGainsSummary(id)
             end
         end
 
-        fc[id] = newHash("today", todayChange,
-                         "yesterday", yesterChange,
-                         "week", weekChange,
-                         "month", monthChange,
-                         "changed", todayChange ~= 0 or yesterChange ~= 0 or weekChange ~= 0 or monthChange ~= 0)
+        fc[id] = newHash(
+            "today", todayChange,
+            "yesterday", yesterChange,
+            "week", weekChange,
+            "month", monthChange,
+            "changed", todayChange ~= 0 or yesterChange ~= 0 or weekChange ~= 0 or monthChange ~= 0
+        )
     end
     return fc[id], newlyCalculated
 end
@@ -572,7 +576,7 @@ function ldb.OnEnter(frame)
                                 if (maxValue > 0) then
                                     tooltip:SetCell(yy, xx, fmt("%d / %d", rep, maxValue), "CENTER", mod.barProvider, mod.gdb.colors[colorId], rep, maxValue, 120, 12)
                                 elseif (faction.hasParagon ~= nil) then
-                                    tooltip:SetCell(yy, xx, fmt("%d / %d", faction.paraValue, faction.paraThreshold), "CENTER", mod.barProvider, mod.gdb.colors[colorId], 1, 1, 120, 12)
+                                    tooltip:SetCell(yy, xx, fmt("%d / %d", faction.paraValue%faction.paraThreshold, faction.paraThreshold), "CENTER", mod.barProvider, mod.gdb.colors[colorId], 1, 1, 120, 12)
                                 end
                                 _showFactionInfoTooltip(frame, faction)
                             end
